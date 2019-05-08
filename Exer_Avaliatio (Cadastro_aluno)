@@ -2,17 +2,14 @@ package exer_theobaldo;
 
 import java.util.Arraylist;
 import javax.swing.JOptionPane;
-/**
- *
- * @author Admin
- */
+
 public class cad_Aluno {
     
-    ArrayList <aluno> cadastro = new ArrayList();
+    ArrayList <AlunoCadastro> cadastro = new ArrayList();
     
     public static void main (String[] args){
         
-        CadastroFicha obj = new CadastroFicha();
+        CadastroFicha cad = new CadastroFicha();
         String nome, email, cidade, uf;
         int cod, quantidade, repete = 0;
         
@@ -23,7 +20,7 @@ public class cad_Aluno {
          repete= Integer.parseInt(JOptionPane.showInputDialog("escolha uma opção\n1=cadastrar alunos\n2=Consultar tamanho da fila \n3=Exluir\n4=listar\n5=Sair. "));
          
         
-  switch (repete){         // cadastro de alunos
+  switch (repete){      
          case 1 :
      
    do{
@@ -32,7 +29,7 @@ public class cad_Aluno {
          email= JOptionPane.showInputDialog("digite o seu E-mail");
          cidade= JOptionPane.showInputDialog("digite o sua Cidade");
          uf= JOptionPane.showInputDialog("digite o seu Estado");
-         obj.cadastro.add(new Aluno(nome,cod,email,cidade,uf));
+         cad.cadastro.add(new Aluno(nome,cod,email,cidade,uf));
          
          JOptionPane.showMessageDialog(null, "cadastro salvo.\n clique em ok para continuar ");
          }while("1".equals(JOptionPane.showInputDialog("digite 1 para continuar inserindo ou 2 para sair")));
@@ -42,17 +39,17 @@ public class cad_Aluno {
    
            
      switch (repete){
-         case 4 :             //visualizar lista;
-             if(obj.cadastro.size()==0){
+         case 4 :  
+             if(cad.cadastro.size()==0){
                JOptionPane.showMessageDialog(null, "Lista vazia");
    }else{
                 
-         for(int i=0;i<obj.cadastro.size();i++){
-             JOptionPane.showMessageDialog (null,obj.cadastro.get(i).nome);
-             JOptionPane.showMessageDialog (null,obj.cadastro.get(i) .codigo);
-             JOptionPane.showMessageDialog (null,obj.cadastro.get(i).email);
-             JOptionPane.showMessageDialog (null,obj.cadastro.get(i).cidade);
-             JOptionPane.showMessageDialog (null,obj.cadastro.get(i).uf);
+         for(int i=0;i<cad.cadastro.size();i++){
+             JOptionPane.showMessageDialog (null,cad.cadastro.get(i).nome);
+             JOptionPane.showMessageDialog (null,cad.cadastro.get(i) .codigo);
+             JOptionPane.showMessageDialog (null,cad.cadastro.get(i).email);
+             JOptionPane.showMessageDialog (null,cad.cadastro.get(i).cidade);
+             JOptionPane.showMessageDialog (null,cad.cadastro.get(i).uf);
           
              break ;
          }
@@ -60,23 +57,23 @@ public class cad_Aluno {
    }
      
      
-     switch (repete){      // remover
+     switch (repete){     
          case  3 :
              int remover;
              remover= Integer.parseInt(JOptionPane.showInputDialog("digite 1 para apagar "));
-            if(remover>obj.cadastro.size()){
+            if(remover>cad.cadastro.size()){
                 JOptionPane.showMessageDialog(null,"Numero invalido");
                 
      }if (remover==1 ){
-             obj.cadastro.remove(0);
+             cad.cadastro.remove(0);
  
           
      break;}
      }
       
-                 switch (repete){  // tamanho da lista 
+                 switch (repete){   
             case 2 :
-                JOptionPane.showMessageDialog(null,"o tamanho da lista é : "+ obj.cadastro.size() );
+                JOptionPane.showMessageDialog(null,"o tamanho da lista é : "+ cad.cadastro.size() );
                 break;
         }
          
